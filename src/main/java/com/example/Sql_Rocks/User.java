@@ -1,6 +1,7 @@
 package com.example.Sql_Rocks;
 
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 
 import jakarta.persistence.Id;
@@ -11,7 +12,12 @@ import jakarta.persistence.Table;
 public class User {
 
     @Id //It is written on that attribute which has to become the primary key
+    @Column(unique = true)
     private int id; //id is the primary key :
+
+
+    @Column(unique = true)
+    private String email;
 
     private String name;
 
@@ -19,6 +25,25 @@ public class User {
 
     private String mobNo;
 
+    @Column(name="country_name")
+    private String country;
+
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getCountry() {
+        return country;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
+    }
 
     //Always create the default constructor
     public User(){
